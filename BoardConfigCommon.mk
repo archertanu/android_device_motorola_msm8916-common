@@ -182,9 +182,6 @@ DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
-=======
-    /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so
->>>>>>> 3261400... Revert "msm8916-common: Add haxx for faceunlock support"
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
