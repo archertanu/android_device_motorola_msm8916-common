@@ -90,6 +90,9 @@ persist.data.netmgrd.qos.enable=true
 # Timeout failed shutdowns
 ro.build.shutdown_timeout=5
 
+# Timeout failed shutdowns
+ro.build.shutdown_timeout=5
+
 # WiFi
 wifi.interface=wlan0
 
