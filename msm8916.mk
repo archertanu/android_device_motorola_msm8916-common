@@ -196,11 +196,6 @@ PRODUCT_PACKAGES += \
     libOmxVidcCommon \
     libstagefrighthw
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
-    power.msm8916
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -211,6 +206,10 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     stml0xx_wrapper.sh \
     ueventd.rc
+
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-service-qti
 
 # RIL
 PRODUCT_PACKAGES += \
