@@ -332,7 +332,7 @@ service wcnss-service /vendor/bin/wcnss_service
     group system wifi radio
 
 #start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
+service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
@@ -349,12 +349,12 @@ on property:persist.usb.chgdisabled=1
 on property:persist.usb.chgdisabled=0
     write /sys/class/power_supply/battery/charging_enabled 1
 
-service qseecomd /system/bin/qseecomd
+service qseecomd /vendor/bin/qseecomd
    class core
    user root
    group root
 
-service thermal-engine /system/vendor/bin/thermal-engine
+service thermal-engine /vendor/bin/thermal-engine
    class main
    user root
    socket thermal-send-client stream 0666 system system
@@ -362,22 +362,49 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-passive-client stream 0666 system system
    group root
 
-service thermal-com /system/vendor/bin/thermal-engine --minimode
+service thermal-com /vendor/bin/thermal-engine --minimode
     class main
     user root
     disabled
 
-service time_daemon /system/bin/time_daemon
+service time_daemon /vendor/bin/time_daemon
    class late_start
    user root
    group root
 
-service irsc_util /system/bin/irsc_util "/vendor/etc/sec_config"
+# corefile limit and ETB enabling
+on property:persist.debug.trace=1
+    mkdir /data/core 0777 root root
+    write /proc/sys/kernel/core_pattern "/data/core/%E.%p.%e"
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/bus/coresight/devices/coresight-etm0/enable 0
+    write /sys/bus/coresight/devices/coresight-etm1/enable 0
+    write /sys/bus/coresight/devices/coresight-etm2/enable 0
+    write /sys/bus/coresight/devices/coresight-etm3/enable 0
+    write /sys/bus/coresight/devices/coresight-etm0/reset 1
+    write /sys/bus/coresight/devices/coresight-etm1/reset 1
+    write /sys/bus/coresight/devices/coresight-etm2/reset 1
+    write /sys/bus/coresight/devices/coresight-etm3/reset 1
+    write /sys/bus/coresight/devices/coresight-etm0/enable 1
+    write /sys/bus/coresight/devices/coresight-etm1/enable 1
+    write /sys/bus/coresight/devices/coresight-etm2/enable 1
+    write /sys/bus/coresight/devices/coresight-etm3/enable 1
+    write /sys/module/coresight_event/parameters/event_abort_enable 1
+
+on property:bluetooth.isEnabled=true
+    write /sys/class/bluetooth/hci0/idle_timeout 7000
+
+on property:persist.env.fastdorm.enabled=true
+    setprop persist.radio.data_no_toggle 1
+
+service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
     user root
     oneshot
 
-service rmt_storage /system/bin/rmt_storage
+service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
@@ -394,12 +421,12 @@ on property:hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
 # QMUX must be in multiple groups to support external process connections
-service qmuxd /system/bin/qmuxd
+service qmuxd /vendor/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps nfc oem_2950
 
-service netmgrd /system/bin/netmgrd
+service netmgrd /vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet oem_2950
@@ -437,7 +464,7 @@ on property:sys.wifi.tethering=true
     write /sys/class/net/wlan0/queues/rx-2/rps_cpus ${sys.usb.rps_mask}
     write /sys/class/net/wlan0/queues/rx-3/rps_cpus ${sys.usb.rps_mask}
 
-service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
+service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
    user system
    socket ims_rtpd stream 0660 system radio
@@ -447,16 +474,16 @@ service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
 on property:sys.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
 
-service imscmservice /system/vendor/bin/imscmservice
-    class main
-    user system
+service imscmservice /vendor/bin/imscmservice
+      class main
+      user system
     group radio diag diag log
     disabled
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
     start imscmservice
 
-service imsdatadaemon /system/vendor/bin/imsdatadaemon
+service imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
@@ -466,7 +493,8 @@ service imsdatadaemon /system/vendor/bin/imsdatadaemon
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
-service imsqmidaemon /system/vendor/bin/imsqmidaemon
+
+service imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
