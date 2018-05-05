@@ -531,6 +531,7 @@ service ppd /vendor/bin/mm-pp-daemon
     socket pps stream 0660 system system
     group system graphics
 
+
 on moto-charger
     setprop ro.board.platform msm8916
 
