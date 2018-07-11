@@ -120,6 +120,7 @@
             <name>IMemtrack</name>
             <instance>default</instance>
         </interface>
+<<<<<<< HEAD
      </hal>
 
       <hal format="hidl">
@@ -130,6 +131,8 @@
             <name>IPower</name>
             <instance>default</instance>
         </interface>
+=======
+>>>>>>> 72ebe51... msm8916-common: Remove power HAL from the manifest
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio</name>

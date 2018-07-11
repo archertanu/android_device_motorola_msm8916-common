@@ -195,6 +195,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	vendor.lineage.livedisplay@1.0-service-sdm
 
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lineage.build.vendor_security_patch=2018-04-01
 
 # Media
 PRODUCT_COPY_FILES += \
