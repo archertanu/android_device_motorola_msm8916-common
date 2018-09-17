@@ -236,7 +236,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service-qti
+    android.hardware.power@1.1-service-qti
     #android.hardware.power@1.0-impl \
     #android.hardware.power@1.0-service \
     #power.msm8916
@@ -272,6 +272,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
 
+<<<<<<< HEAD
+=======
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@1.0-impl
+
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.1-service-qti
+
+>>>>>>> c1853b7... msm8916-common: Switch to 1.1 power HAL
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.basic
