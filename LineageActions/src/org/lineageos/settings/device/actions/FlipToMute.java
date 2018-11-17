@@ -113,8 +113,7 @@ public class FlipToMute implements UpdatedStateNotifier {
         if (mIsFlatDown && mIsStowed) {
             vibrate();
             canVibrate = true;
-            mNotificationManager.setInterruptionFilter(
-                    NotificationManager.INTERRUPTION_FILTER_PRIORITY);
+            mNotificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_PRIORITY);
             Log.d(TAG, "Interrupt filter: Allow priority");
         } else if (!mIsFlatDown) {
             if (canVibrate) {
@@ -127,12 +126,14 @@ public class FlipToMute implements UpdatedStateNotifier {
     }
 
     private void vibrate() {
-        Vibrator vib = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
-        if (vib == null)
-            return;
-        VibrationEffect effect = VibrationEffect.createOneShot(250,
-                VibrationEffect.DEFAULT_AMPLITUDE);
-        vib.vibrate(effect);
+       // Vibrator vib = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+       // if (vib == null)
+       //     return;
+       // VibrationEffect effect = VibrationEffect.createOneShot(250,
+       //         VibrationEffect.DEFAULT_AMPLITUDE);
+       // vib.vibrate(effect);
+        Vibrator v = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(250);
     }
 
     public class Receiver extends BroadcastReceiver {
