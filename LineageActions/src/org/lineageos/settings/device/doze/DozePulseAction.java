@@ -64,3 +64,4 @@ public class DozePulseAction implements SensorAction, ScreenStateNotifier {
         }
     }
 }
+

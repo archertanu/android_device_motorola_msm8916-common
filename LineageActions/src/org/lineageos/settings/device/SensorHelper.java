@@ -98,3 +98,4 @@ public class SensorHelper {
         mSensorManager.unregisterListener(listener);
     }
 }
+

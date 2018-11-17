@@ -136,3 +136,4 @@ public class CameraActivationAction implements SensorAction {
         return new ComponentName(activity.applicationInfo.packageName, activity.name);
     }
 }
+

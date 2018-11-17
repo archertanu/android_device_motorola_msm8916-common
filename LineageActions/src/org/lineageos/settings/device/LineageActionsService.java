@@ -63,29 +63,22 @@ public class LineageActionsService extends IntentService implements ScreenStateN
         mScreenStateNotifiers.add(dozePulseAction);
 
         // Actionable sensors get screen on/off notifications
-        mScreenStateNotifiers.add(new FlatUpSensor(lineageActionsSettings,
-                    sensorHelper, dozePulseAction));
-        mScreenStateNotifiers.add(new ProximitySensor(lineageActionsSettings,
-                    sensorHelper, dozePulseAction));
-        mScreenStateNotifiers.add(new StowSensor(lineageActionsSettings,
-                    sensorHelper, dozePulseAction));
+
+        mScreenStateNotifiers.add(new FlatUpSensor(lineageActionsSettings, sensorHelper, dozePulseAction));
+        mScreenStateNotifiers.add(new ProximitySensor(lineageActionsSettings, sensorHelper, dozePulseAction));
+        mScreenStateNotifiers.add(new StowSensor(lineageActionsSettings, sensorHelper, dozePulseAction));
 
         // Other actions that are always enabled
-        mUpdatedStateNotifiers.add(new CameraActivationSensor(lineageActionsSettings,
-                    sensorHelper));
+        mUpdatedStateNotifiers.add(new CameraActivationSensor(lineageActionsSettings, sensorHelper));
         if (!Device.isSurnia()){
-            mUpdatedStateNotifiers.add(new ChopChopSensor(lineageActionsSettings,
-                        sensorHelper));
+            mUpdatedStateNotifiers.add(new ChopChopSensor(lineageActionsSettings, sensorHelper));
         } else {
             Log.d(TAG, "No ChopChop");
         }
 
-        mUpdatedStateNotifiers.add(new ProximitySilencer(lineageActionsSettings,
-                    context, sensorHelper));
-        mUpdatedStateNotifiers.add(new FlipToMute(lineageActionsSettings,
-                    context, sensorHelper));
-        mUpdatedStateNotifiers.add(new LiftToSilence(lineageActionsSettings,
-                    context, sensorHelper));
+        mUpdatedStateNotifiers.add(new ProximitySilencer(lineageActionsSettings, context, sensorHelper));
+        mUpdatedStateNotifiers.add(new FlipToMute(lineageActionsSettings, context, sensorHelper));
+        mUpdatedStateNotifiers.add(new LiftToSilence(lineageActionsSettings, context, sensorHelper));
 
         mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         String tag = context.getPackageName() + ":ServiceWakeLock";

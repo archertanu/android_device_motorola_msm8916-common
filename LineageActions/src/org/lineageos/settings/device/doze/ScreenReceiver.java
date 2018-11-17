@@ -44,3 +44,4 @@ public class ScreenReceiver extends BroadcastReceiver {
         }
     }
 }
+

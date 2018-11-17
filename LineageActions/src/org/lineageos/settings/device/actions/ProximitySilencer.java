@@ -107,3 +107,4 @@ public class ProximitySilencer extends PhoneStateListener implements SensorEvent
     public void onAccuracyChanged(Sensor mSensor, int accuracy) {
     }
 }
+

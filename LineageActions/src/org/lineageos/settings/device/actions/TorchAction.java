@@ -55,8 +55,7 @@ public class TorchAction implements SensorAction {
 
     @Override
     public void action() {
-        VibrationEffect vibrationEffect = VibrationEffect.createOneShot(250,
-                VibrationEffect.DEFAULT_AMPLITUDE);
+        VibrationEffect vibrationEffect = VibrationEffect.createOneShot(250, VibrationEffect.DEFAULT_AMPLITUDE);
         mVibrator.vibrate(vibrationEffect);
         if (mRearCameraId != null) {
             try {
@@ -85,3 +84,4 @@ public class TorchAction implements SensorAction {
         }
     }
 }
+

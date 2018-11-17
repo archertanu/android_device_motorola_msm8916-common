@@ -21,3 +21,4 @@ public interface ScreenStateNotifier {
     void screenTurnedOn();
     void screenTurnedOff();
 }
+

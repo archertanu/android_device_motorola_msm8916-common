@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.lineageos.settings.device;
 
 import android.os.Bundle;
@@ -33,4 +32,3 @@ public class ActionsPreferenceActivity extends PreferenceActivity {
         getFragmentManager().beginTransaction()
             .replace(android.R.id.content, new ActionsPreferenceFragment()).commit();
     }
-}

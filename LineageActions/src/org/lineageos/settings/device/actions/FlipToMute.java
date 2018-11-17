@@ -126,14 +126,10 @@ public class FlipToMute implements UpdatedStateNotifier {
     }
 
     private void vibrate() {
-       // Vibrator vib = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
-       // if (vib == null)
-       //     return;
-       // VibrationEffect effect = VibrationEffect.createOneShot(250,
-       //         VibrationEffect.DEFAULT_AMPLITUDE);
-       // vib.vibrate(effect);
-        Vibrator v = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
-        v.vibrate(250);
+        Vibrator vib = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+        if (vib == null) return;
+        VibrationEffect effect = VibrationEffect.createOneShot(250, VibrationEffect.DEFAULT_AMPLITUDE);
+        vib.vibrate(effect);
     }
 
     public class Receiver extends BroadcastReceiver {
@@ -141,11 +137,11 @@ public class FlipToMute implements UpdatedStateNotifier {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (!mIsFlatDown && !mIsStowed) {
-                if (mNotificationManager == null)
-                    return;
+                if (mNotificationManager == null) return;
                 mFilter = mNotificationManager.getCurrentInterruptionFilter();
                 Log.d(TAG, "Interrupt filter: Backup");
             }
         }
     }
 }
+

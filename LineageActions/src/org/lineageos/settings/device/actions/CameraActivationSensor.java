@@ -59,3 +59,4 @@ public class CameraActivationSensor implements SensorEventListener, UpdatedState
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 }
+
