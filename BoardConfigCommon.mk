@@ -175,7 +175,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libmmcamera_wavelet_lib.so|libc_util.so \
     /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so \
     /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
-    /system/lib/libfacenet.so|libprotobuf-cpp-haxx.so
     /system/vendor/lib/lib-imsvt.so|libshims_ims.so
 
 # Vendor Interface Manifest
@@ -183,6 +182,9 @@ DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
+=======
+    /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so
+>>>>>>> 3261400... Revert "msm8916-common: Add haxx for faceunlock support"
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
