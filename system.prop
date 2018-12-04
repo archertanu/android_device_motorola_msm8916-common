@@ -80,9 +80,13 @@ persist.radio.relay_oprt_change=1
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/vendor/lib/libril-wrapper.so
 ro.telephony.call_ring.multiple=false
+ro.config.vc_call_vol_steps=7
+
 
 # Security patch level
-ro.lineage.build.vendor_security_patch=2018-06-01
+#ro.lineage.build.vendor_security_patch=2018-06-01
 
 # WiFi
 wifi.interface=wlan0
+ro.use_data_netmgrd=true
+persist.data.netmgrd.qos.enable=true
