@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018-2019 The LineageOS Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ using android::hardware::light::V2_0::implementation::Light;
 const static std::string kLcdBacklightPath = "/sys/class/leds/lcd-backlight/brightness";
 const static std::string kLcdMaxBacklightPath = "/sys/class/leds/lcd-backlight/max_brightness";
 const static std::string kChargingLedPath = "/sys/class/leds/charging/brightness";
-const static std::string kBlinkingLedPath = "/sys/class/leds/rgb/control";
 
 int main() {
     uint32_t lcdMaxBrightness = 255;
@@ -54,16 +53,16 @@ int main() {
         lcdMaxBacklight >> lcdMaxBrightness;
     }
 
-    std::ofstream blinkingLed(kBlinkingLedPath);
     std::ofstream chargingLed(kChargingLedPath);
-    if (!chargingLed && !blinkingLed) {
-        LOG(ERROR) << "Failed to open notification or charging LED!";
+    if (!chargingLed) {
+        LOG(ERROR) << "Failed to open " << kChargingLedPath << ", error=" << errno
+                   << " (" << strerror(errno) << ")";
         return -errno;
     }
 
     android::sp<ILight> service = new Light(
             {std::move(lcdBacklight), lcdMaxBrightness},
-            std::move(chargingLed), std::move(blinkingLed));
+            std::move(chargingLed));
 
     configureRpcThreadpool(1, true);
 
@@ -80,3 +79,4 @@ int main() {
     LOG(ERROR) << "Light HAL failed to join thread pool.";
     return 1;
 }
+
