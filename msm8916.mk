@@ -101,6 +101,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
     $(LOCAL_PATH)/configs/hacks.prop:$(TARGET_COPY_OUT_VENDOR)/hacks.prop
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hacks.prop:$(TARGET_COPY_OUT_VENDOR)/hacks.prop
+
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
