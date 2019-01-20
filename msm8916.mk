@@ -1,4 +1,4 @@
-#
+
 # Copyright (C) 2015-2016 The CyanogenMod Project
 # Copyright (C) 2017 The LineageOS Project
 #
@@ -259,7 +259,6 @@ PRODUCT_PACKAGES += \
     libqsap_shim \
     libril-wrapper \
     librmnetctl \
-    libshim_ril \
     libxml2
 
 # Telephony
