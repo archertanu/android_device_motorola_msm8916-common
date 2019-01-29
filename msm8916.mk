@@ -194,7 +194,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay native
 PRODUCT_PACKAGES += \
-	vendor.lineage.livedisplay@1.0-service-sdm
+    vendor.lineage.livedisplay@1.0-service-legacymm
 
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
