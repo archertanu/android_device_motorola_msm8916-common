@@ -98,7 +98,6 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl \
     camera.msm8916 \
     libbson \
-    libboringssl-compat \
     libc_util \
     libshims_camera \
     Snap
