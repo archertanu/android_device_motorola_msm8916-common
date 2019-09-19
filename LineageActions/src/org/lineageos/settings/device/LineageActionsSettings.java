@@ -68,8 +68,11 @@ public class LineageActionsSettings implements SharedPreferences.OnSharedPrefere
         return mChopChopEnabled;
     }
 
+    public static boolean isDozeEnabled(Context context) {
+        return new AmbientDisplayConfiguration(context).pulseOnNotificationEnabled(UserHandle.USER_CURRENT);
+    }
     public boolean isDozeEnabled() {
-        return mAmbientDisplayConfiguration.pulseOnNotificationEnabled(UserHandle.USER_CURRENT);
+        return isDozeEnabled(mContext);
     }
 
     public boolean isIrWakeupEnabled() {
