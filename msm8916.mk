@@ -125,9 +125,6 @@ PRODUCT_PACKAGES += \
     memtrack.msm8916 \
     libtinyxml
 
-# DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -172,7 +169,10 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.msm8916
+    #android.hardware.light@2.0-service.msm8916
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service \
+    lights.msm8916
 
 # LineageActions
 PRODUCT_PACKAGES += \
@@ -209,7 +209,10 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service-qti
+    #android.hardware.power@1.0-service-qti
+    android.hardware.power@1.0-impl \
+    android.hardware.power@1.0-service \
+    power.msm8916
 
 # RIL
 PRODUCT_PACKAGES += \
