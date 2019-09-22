@@ -95,7 +95,7 @@ PRODUCT_COPY_FILES +=  \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
-    #camera.device@1.0-impl \
+    camera.device@1.0-impl \
     camera.msm8916 \
     libbson \
     libboringssl-compat \
@@ -107,8 +107,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
     $(LOCAL_PATH)/configs/hacks.prop:$(TARGET_COPY_OUT_VENDOR)/hacks.prop
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/hacks.prop:$(TARGET_COPY_OUT_VENDOR)/hacks.prop
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -186,14 +184,11 @@ PRODUCT_COPY_FILES += \
 
 # IMS
 PRODUCT_PACKAGES += \
-    libshims_ims
-
-# Telephony
-PRODUCT_PACKAGES += \
     ims-ext-common \
     telephony-ext
 
-PRODUCT_BOOT_JARS += telephony-ext
+PRODUCT_BOOT_JARS += \
+       telephony-ext
 
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -272,13 +267,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
-# Telephony
-PRODUCT_PACKAGES += \
-    qti-telephony-common \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 # Seccomp
 PRODUCT_COPY_FILES += \
