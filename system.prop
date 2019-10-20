@@ -122,8 +122,6 @@ rild.libargs=-d/dev/smd0
 rild.libpath=/vendor/lib/libril-qc-qmi-1.so
 ro.telephony.call_ring.multiple=false
 telephony.lteOnCdmaDevice=1
-
-ro.telephony.call_ring.multiple=false
 ro.config.vc_call_vol_steps=7
 
 # RmNet Data
