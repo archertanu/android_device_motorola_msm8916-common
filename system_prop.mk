@@ -81,6 +81,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_short_ons_2="" \
     persist.rild.nitz_short_ons_3=""
 
+# Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.vendor.extension_library=libqti-perfd-client.so
+
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=1 \
