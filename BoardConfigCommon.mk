@@ -147,6 +147,10 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_EXFAT_DRIVER := exfat
 
+# Perf
+PRODUCT_BOOT_JARS += \
+    QPerformance \
+    UxPerformance
 
 # Properties
 TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
