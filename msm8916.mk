@@ -224,9 +224,6 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.msm8916
-    #android.hardware.light@2.0-impl \
-    #android.hardware.light@2.0-service \
-    #lights.msm8916
 
 # LineageActions
 PRODUCT_PACKAGES += \
@@ -274,13 +271,6 @@ PRODUCT_PACKAGES += \
     stml0xx_wrapper.sh \
     ueventd.rc
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
-    #android.hardware.power@1.0-impl \
-    #android.hardware.power@1.0-service \
-    #power.msm8916
-
 # RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
@@ -305,9 +295,6 @@ $(call inherit-product, device/motorola/msm8916-common/system_prop.mk)
 # Thermal
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
-
-#PRODUCT_PACKAGES += \
-#    android.hardware.thermal@1.0-impl
 
 # Power
 PRODUCT_PACKAGES += \
