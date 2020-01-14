@@ -6,6 +6,9 @@ ro.manufacturedate          u:object_r:manufacturedate_prop:s0
 ro.hw.revision              u:object_r:hw_rev_prop:s0
 rmtfs.                      u:object_r:rmtfs_prop:s0
 
+
 # Perf
 vendor.min_freq_0           u:object_r:freq_prop:s0
 vendor.min_freq_4           u:object_r:freq_prop:s0
+
+wifi.active.interface u:object_r:exported_wifi_prop:s0 exact string
