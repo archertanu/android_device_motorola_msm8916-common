@@ -157,6 +157,7 @@ on boot
 
 
     # Permissions required for power HAL
+    chown system system /sys/android_touch/doubletap2wake_master
     #chown system system /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
 
 on late-fs

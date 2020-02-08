@@ -138,6 +138,9 @@ USE_DEVICE_SPECIFIC_GPS := true
 # HIDL
 DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
 
+#Enable : D2W
+TARGET_TAP_TO_WAKE_NODE := /sys/android_touch/doubletap2wake_master
+
 # Partitions
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
