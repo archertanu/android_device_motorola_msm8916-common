@@ -602,11 +602,13 @@ on moto-charger
 on property:init.svc.qcamerasvr=running
     restart media
 
+service qcom-mem /vendor/bin/init.qcom.mem.sh
+    disabled
+    oneshot
+
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.qcom
 
-
-    restart cameraserver
-
     restart qcamerasvr
+    start qcom-mem
