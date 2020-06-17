@@ -374,6 +374,9 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
     group camera system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
 
+on property:init.svc.qcamerasvr=running
+    restart media
+
 service charger /system/bin/charger
     class charger
     user system
@@ -596,8 +599,14 @@ on moto-charger
     start thermal-com
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
+on property:init.svc.qcamerasvr=running
+    restart media
+
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.qcom
 
+
     restart cameraserver
+
+    restart qcamerasvr
