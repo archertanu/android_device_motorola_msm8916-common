@@ -548,7 +548,6 @@ service vendor.per_mgr /vendor/bin/pm-service
     class core
     user system
     group system
-    disabled
     writepid /dev/cpuset/system-background/tasks
 
 service vendor.per_proxy /vendor/bin/pm-proxy
